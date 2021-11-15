@@ -42,14 +42,12 @@ if (
 //Desafio 3: Ciclos / Iteraciones
 
 
-//Ejercicio uno
+/*//Ejercicio uno
 sumaDePeso = 0
 for (let i = 1; i <= 10; i++) {
     let pesoAnimal = parseFloat(prompt("Ingrese peso de animal " + i + " en kgs"));
  sumaDePeso += pesoAnimal;
 }
-
-let sumaTotal = sumaDePeso 
 
 console.log("La suma total de los animales a llevar es: " + sumaTotal + " kilogramos");
 
@@ -71,6 +69,24 @@ while (producto !== "ESC" && precio !== "ESC")  {
         precio = parseFloat(prompt("Ingresar precio otro producto"));
     }
 }
+*/
+//Desafio 4 - Simulador Interactivo
+
+//Aca queria hacer una funcion que pida el producto y desde el producto ingresado sacar el precio. Cuando puedas me
+//ayudas como le hago.
+//ya este en una funcion de calculo de precio
+
+function calcularPrecioConIva (precioProducto){
+  let iva = (precioProducto*21)/100;
+  let precioConIva=precioProducto+iva;
+  return precioConIva;
+}
+
+let precioFinal = calcularPrecioConIva(parseFloat(prompt("Ingrese precio: "))); //Aca queria poner el precio obtenido en la primer funcion
+console.log(precioFinal);
+
+
+
  
 
 
