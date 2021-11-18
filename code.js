@@ -72,22 +72,72 @@ while (producto !== "ESC" && precio !== "ESC")  {
 */
 //Desafio 4 - Simulador Interactivo
 
-//Aca queria hacer una funcion que pida el producto y desde el producto ingresado sacar el precio. Cuando puedas me
-//ayudas como le hago.
-//ya este en una funcion de calculo de precio
+//funcion en proceso
 
-function calcularPrecioConIva (precioProducto){
-  let iva = (precioProducto*21)/100;
-  let precioConIva=precioProducto+iva;
-  return precioConIva;
+
+/*function productNum() {
+
+    let producto = prompt(
+        "Ingrese producto a comprar- ESC para finalizar compra"
+      );
+      while (producto != "ESC") {
+        switch (producto) {
+          case "collares":
+            console.log(20);
+            break;
+          case "aros":
+            console.log(30);
+            break;
+          case "anillos":
+            console.log(40);
+            break;
+          default:
+            console.log("Producto no disponible");
+            break;
+        }
+      
+        producto = prompt(
+          "Ingrese producto a comprar- ESC para finalizar compra"
+        );
+      }
+    
+}
+ parseInt(productNum())
+*/
+
+
+/*function calcularPrecioConIva(precioProducto) {
+    let iva = (precioProducto * 21) / 100;
+    let precioConIva = precioProducto + iva;
+    return precioConIva;
+}
+let precioFinal = calcularPrecioConIva(parseFloat(prompt("Ingresar precio"))); // Todavia no llego a ver como poner el resultado de la función acá
+console.log(precioFinal);
+*/
+// Desafío 5 - Objetos
+
+class Producto {
+    constructor(nombre, precio){
+        this.nombre = nombre.toUpperCase();
+        this.precio = parseInt(precio);
+    }
+    sumarIva(){
+        this.precio = this.precio * 1.21;
+    }
+    nuevoValor(){
+        alert('El valor de ' + this.nombre + ' y con IVA es de ' + this.precio);
+    }
 }
 
-let precioFinal = calcularPrecioConIva(parseFloat(prompt("Ingrese precio: "))); //Aca queria poner el precio obtenido en la primer funcion
-console.log(precioFinal);
+const producto1 = new Producto ("collares","60");
+const producto2 = new Producto ("aros", "70");
+const producto3 = new Producto ("anillos", "80");
 
+producto1.sumarIva();
+producto1.nuevoValor();
 
+producto2.sumarIva();
+producto2.nuevoValor();
 
- 
-
-
-
+producto3.sumarIva();
+producto3.nuevoValor();
