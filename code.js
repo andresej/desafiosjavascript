@@ -73,50 +73,46 @@ while (producto !== "ESC" && precio !== "ESC")  {
 //Desafio 4 - Simulador Interactivo
 
 //funcion en proceso
-
-
-/*function productNum() {
-
-    let producto = prompt(
-        "Ingrese producto a comprar- ESC para finalizar compra"
-      );
-      while (producto != "ESC") {
-        switch (producto) {
-          case "collares":
-            console.log(20);
-            break;
-          case "aros":
-            console.log(30);
-            break;
-          case "anillos":
-            console.log(40);
-            break;
-          default:
-            console.log("Producto no disponible");
-            break;
-        }
-      
-        producto = prompt(
-          "Ingrese producto a comprar- ESC para finalizar compra"
-        );
-      }
+/*
+function productNum() {
+    let producto = prompt("Collares\n Aros\n Anillos\n Diademas");
+    
+    if (producto == "Collares")  {
+        console.log("Añadiste collares al carrito");
+    } else if (producto == "Aros")  {
+        console.log("Añadiste collares al carrito");
+    } else if (producto == "Anillos")  {
+        console.log("Añadiste collares al carrito");
+    } else if (producto == "Diademas")  {
+        console.log("Añadiste collares al carrito");
+    } else {
+        console.log("Producto Inexistente");
+    }
+    return producto
+    
     
 }
- parseInt(productNum())
-*/
 
+let producto = productNum();
 
-/*function calcularPrecioConIva(precioProducto) {
+//La funcion del precio de iva me funciona bien.
+function calcularPrecioConIva(precioProducto) {
     let iva = (precioProducto * 21) / 100;
     let precioConIva = precioProducto + iva;
     return precioConIva;
 }
-let precioFinal = calcularPrecioConIva(parseFloat(prompt("Ingresar precio"))); // Todavia no llego a ver como poner el resultado de la función acá
-console.log(precioFinal);
+
+let precioSinIva = parseFloat(prompt("Ingrese precio de producto seleccionado"));
+
+let precioFinal = calcularPrecioConIva(precioSinIva); 
+console.log("El precio de l@s " + producto + " sin IVA es $"+ precioSinIva + ". Precio final es $" + precioFinal);
+
+
 */
+
 // Desafío 5 - Objetos
 
-class Producto {
+/*class Producto {
     constructor(nombre, precio){
         this.nombre = nombre.toUpperCase();
         this.precio = parseInt(precio);
@@ -125,7 +121,7 @@ class Producto {
         this.precio = this.precio * 1.21;
     }
     nuevoValor(){
-        alert('El valor de ' + this.nombre + ' y con IVA es de ' + this.precio);
+        console.log('El valor de l@s ' + this.nombre + ' y con IVA es de ' + this.precio);
     }
 }
 
@@ -140,4 +136,38 @@ producto2.sumarIva();
 producto2.nuevoValor();
 
 producto3.sumarIva();
-producto3.nuevoValor();
+producto3.nuevoValor();*/
+
+//Desafio 6 - Arrays
+
+
+class Producto {
+    constructor(sku, nombre, precio) {
+        this.sku = sku;
+        this.nombre = nombre.toUpperCase();
+        this.precio = parseFloat(precio);
+
+    }
+    sumarIva() {
+        this.precio = this.precio * 1.21;
+    }
+}
+//Array de productos para almacenar objetos
+const productos = [];
+productos.push(new Producto("100", "collares", "20"));
+productos.push(new Producto("101", "aros", "30"));
+productos.push(new Producto("102", "anillos", "50"));
+//Iteramos el array con for...of para modificarlos a todos
+for (const producto of productos)
+    producto.sumarIva();
+
+console.log("Los articulos disponibles son: ");
+for (const objeto of productos) {
+    console.log(objeto.nombre);
+}
+
+console.log("y el precio de cada uno con IVA es ")
+for (const price of productos) {
+    console.log("$", price.precio);
+}
+
